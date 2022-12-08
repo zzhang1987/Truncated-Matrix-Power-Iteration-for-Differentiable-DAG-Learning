@@ -3,7 +3,7 @@ import scipy.linalg as slin
 import torch
 
 
-from .tmpi_torch import h_tmpi_native_double, h_tmpi_native_float, h_fast_geo_float, h_fast_geo_double
+from .tmpi_torch import h_tmpi_native_double, h_tmpi_native_float
 
 
 class HTorchTmpi(torch.autograd.Function):
@@ -20,6 +20,8 @@ class HTorchTmpi(torch.autograd.Function):
     def backward(ctx, grad_output):
         G_h, = ctx.saved_tensors
         return grad_output * G_h, None
+
+
 
 
 
